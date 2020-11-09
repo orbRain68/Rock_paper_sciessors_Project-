@@ -7,9 +7,11 @@ Description: This code will play the game rock_paper_scissor with you.\
 """
 ### All packages that were used.
 from random import randint
-### The code
+import tkinter as tk
+### The code that needs to be run.
 def main():
-    print( process(userChioce(),computerChoice()))
+
+    guiFunction()
 
 ### A function for Computer's choice
 def computerChoice():
@@ -41,5 +43,12 @@ def process(hereMe,cpu):
         return('you lose\n')
     else:
         return("That is not a valid play. Check the spelling!\n")
+def guiFunction():
+    root = tk.Tk()
+
+    button = tk.Button(root,text='testing tes')
+
+    button.pack()
+    root.mainloop()
 if __name__ == "__main__":
     main()
