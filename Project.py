@@ -9,18 +9,37 @@ Description: This code will play the game rock_paper_scissor with you.\
 from random import randint
 ### The code
 def main():
-    print(computerChoice())
+    print( process(userChioce(),computerChoice()))
+
 ### A function for Computer's choice
 def computerChoice():
-    x = randint(0,2)
-    pick = ['Rock','Paper','scissor']
+    x =   randint(0,2)
+    pick = ['rock','paper','scissor']
     return pick[x]
 
-### User's input
+### User's pick
 def userChioce():
-    pass
-### output result
-def result():
-    pass
+    userInput = str(input("Enter (rock or paper or scissor): "))
+    return userInput
+### Processing results
+def process(hereMe,cpu):
+    if hereMe == cpu:
+        return('tie!'.title())
+    elif hereMe == 'rock' and cpu == 'scissor':
+        return('you won!! CPU chooses ({})\n'.format(cpu))
+    elif hereMe == 'rock' and cpu == 'paper':
+        return( 'you lose\n')    
+
+    elif hereMe == 'paper' and cpu == 'rock':
+        return('you won!! CPU chooses ({})\n'.format(cpu))
+    elif hereMe == 'paper' and cpu == 'scissor':
+        return('You lose\n')
+
+    elif hereMe == 'scissor' and cpu == 'paper':
+        return('you won!! CPU chooses ({})\n'.format(cpu))
+    elif hereMe == 'scissor' and cpu =='rock':
+        return('you lose\n')
+    else:
+        return("That is not a valid play. Check the spelling!\n")
 if __name__ == "__main__":
     main()
