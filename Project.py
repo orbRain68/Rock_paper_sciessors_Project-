@@ -48,11 +48,16 @@ def process(hereMe,cpu):
 ### Graphical User Interface
 def guiFunction():
     root = tk.Tk()
-
-    canvas = tk.Canvas(root, height=455, width=710)
+    root.title('Rock Paper scissor Game.')
+    root.resizable(False,False)
+    
+    canvas = tk.Canvas(root, height=455, width=710,bd=-2)
     canvas.pack()
     
-    backgroung_img = ImageTk.PhotoImage(Image.open("2560_1440.png"))
+    idea = tk.Frame(root,bg='#48C3F9',bd=4)
+    idea.place(relx=.1,rely=.1,relwidth=.8,relheight=.8)
+
+    backgroung_img = ImageTk.PhotoImage(Image.open("Images/2560_1440.png"))
     canvas.create_image(20,20,anchor='center',image=backgroung_img)
     
     frame = tk.Frame(root, bg='black',bd=4)
@@ -61,21 +66,27 @@ def guiFunction():
     frame2 = tk.Frame(frame,bg='white',bd=4)
     frame2.place(relwidth=1,relheight=1)
 
-    frame3 = tk.Frame(frame2,bg='#48C3F9')
-    frame3.place(relwidth=1,relheight=1)
+    buttonFrame = tk.Frame(frame2,bg='#48C3F9')
+    buttonFrame.place(relwidth=1,relheight=1)
 
-    button = tk.Button(frame3, text='testing 1'.upper(),bg='yellow')
+    button = tk.Button(buttonFrame, text='testing 1'.upper(),bg='yellow')
     button.place(relx=0.04,rely=0.25,relwidth=.2,relheight=.5)
 
-    button2 = tk.Button(frame3, text='testing 2'.upper(),bg='yellow')
+    button2 = tk.Button(buttonFrame, text='testing 2'.upper(),bg='yellow')
     button2.place(relx=0.40,rely=0.25,relwidth=.2,relheight=.5)
 
-    button3 = tk.Button(frame3, text='testing 3'.upper(),bg='yellow')
+    button3 = tk.Button(buttonFrame, text='testing 3'.upper(),bg='yellow')
     button3.place(relx=.76,rely=0.25,relwidth=.2,relheight=.5)
 
-    #entry = tk.Entry(frame, fg='red',font=10)
-    #entry.pack(side='TOP')
+    labelFrame = tk.LabelFrame(root,bg='black',fg='white',bd=2,text='Hello World')
+    labelFrame.place(relx=.1,rely=.1,relwidth=.8,relheight=.6)
 
+    label = tk.Label(labelFrame, bg='red',fg='red',font=10)
+    label.pack(side='top')
+    
+    labeltime = tk.Label(root, bg='grey',fg='red',font=10)
+    labeltime.pack(side='top',fill='x')
+    
     root.mainloop()
 
     
