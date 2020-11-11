@@ -55,18 +55,26 @@ def guiFunction():
     backgroung_img = ImageTk.PhotoImage(Image.open("2560_1440.png"))
     canvas.create_image(20,20,anchor='center',image=backgroung_img)
     
-    
-    frame = tk.Frame(root, bg='black',bd=5)
-    frame.place(relx=0.1,rely=0.1, relwidth=.8, relheight=.2)
+    frame = tk.Frame(root, bg='black',bd=4)
+    frame.place(relx=0.1,rely=.75, relwidth=.8, relheight=.15)
 
-    frame2 = tk.Frame(frame,bg='#20B7F9')
-    frame2.pack()
+    frame2 = tk.Frame(frame,bg='white',bd=4)
+    frame2.place(relwidth=1,relheight=1)
+
+    frame3 = tk.Frame(frame2,bg='#48C3F9')
+    frame3.place(relwidth=1,relheight=1)
+
+    button = tk.Button(frame3, text='testing 1'.upper(),bg='yellow')
+    button.place(relx=0.04,rely=0.25,relwidth=.2,relheight=.5)
+
+    button2 = tk.Button(frame3, text='testing 2'.upper(),bg='yellow')
+    button2.place(relx=0.40,rely=0.25,relwidth=.2,relheight=.5)
+
+    button3 = tk.Button(frame3, text='testing 3'.upper(),bg='yellow')
+    button3.place(relx=.76,rely=0.25,relwidth=.2,relheight=.5)
 
     #entry = tk.Entry(frame, fg='red',font=10)
-    #entry.pack(side='left')
-
-    #button = tk.Button(frame, text='testing tes',bg='yellow')
-    #button.pack()
+    #entry.pack(side='TOP')
 
     root.mainloop()
 
