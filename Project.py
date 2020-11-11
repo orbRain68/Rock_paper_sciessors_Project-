@@ -69,14 +69,17 @@ def guiFunction():
     buttonFrame = tk.Frame(frame2,bg='#48C3F9')
     buttonFrame.place(relwidth=1,relheight=1)
 
-    button = tk.Button(buttonFrame, text='testing 1'.upper(),bg='yellow')
-    button.place(relx=0.04,rely=0.25,relwidth=.2,relheight=.5)
+    rockImg = ImageTk.PhotoImage(file='images/rock.jpg')
+    button = tk.Button(buttonFrame, image=rockImg,bg='white',bd=-2)
+    button.place(relx=0.15,rely=0.10,relwidth=.12,relheight=.8)
 
-    button2 = tk.Button(buttonFrame, text='testing 2'.upper(),bg='yellow')
-    button2.place(relx=0.40,rely=0.25,relwidth=.2,relheight=.5)
+    paperImg = ImageTk.PhotoImage(file='images/paper.jpg')
+    button2 = tk.Button(buttonFrame, image=paperImg,bd=-2,bg='white')
+    button2.place(relx=.44,rely=0.10,relwidth=.12,relheight=.8)
 
-    button3 = tk.Button(buttonFrame, text='testing 3'.upper(),bg='yellow')
-    button3.place(relx=.76,rely=0.25,relwidth=.2,relheight=.5)
+    scissorImg = ImageTk.PhotoImage(file='images/scissor.jpg')
+    button3 = tk.Button(buttonFrame, image=scissorImg,bg='white', bd=-2)
+    button3.place(relx=.73,rely=0.10,relwidth=.12,relheight=.8)
 
     labelFrame = tk.LabelFrame(root,bg='black',fg='white',bd=2,text='Hello World')
     labelFrame.place(relx=.1,rely=.1,relwidth=.8,relheight=.6)
