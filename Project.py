@@ -21,9 +21,13 @@ def computerChoice():
     return pick[x]
 
 ### User's pick
-def userChioce():
-    userInput = str(input("Enter (rock or paper or scissor): "))
-    return userInput
+def userChioce(hh):
+    if hh == 1:
+        print( "rock")
+    elif hh == 2:
+        print( "paper")
+    else:
+        print ("scissor")
 
 ### Processing results
 def process(hereMe,cpu):
@@ -70,16 +74,16 @@ def guiFunction():
     buttonFrame.place(relwidth=1,relheight=1)
 
     rockImg = ImageTk.PhotoImage(file='images/rock.jpg')
-    button = tk.Button(buttonFrame, image=rockImg,bg='white',bd=-2)
-    button.place(relx=0.15,rely=0.10,relwidth=.12,relheight=.8)
+    rockButton = tk.Button(buttonFrame, image=rockImg,bg='white',bd=-2,command=lambda:userChioce(1))
+    rockButton.place(relx=0.15,rely=0.10,relwidth=.12,relheight=.8)
 
     paperImg = ImageTk.PhotoImage(file='images/paper.jpg')
-    button2 = tk.Button(buttonFrame, image=paperImg,bd=-2,bg='white')
-    button2.place(relx=.44,rely=0.10,relwidth=.12,relheight=.8)
+    paperButton = tk.Button(buttonFrame, image=paperImg,bd=-2,bg='white',command=lambda:userChioce(2))
+    paperButton.place(relx=.44,rely=0.10,relwidth=.12,relheight=.8)
 
     scissorImg = ImageTk.PhotoImage(file='images/scissor.jpg')
-    button3 = tk.Button(buttonFrame, image=scissorImg,bg='white', bd=-2)
-    button3.place(relx=.73,rely=0.10,relwidth=.12,relheight=.8)
+    scissorButton = tk.Button(buttonFrame, image=scissorImg,bg='white', bd=-2,command=lambda:userChioce(3))
+    scissorButton.place(relx=.73,rely=0.10,relwidth=.12,relheight=.8)
 
     labelFrame = tk.LabelFrame(root,bg='black',fg='white',bd=2,text='Hello World')
     labelFrame.place(relx=.1,rely=.1,relwidth=.8,relheight=.6)
