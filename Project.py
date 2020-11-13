@@ -59,7 +59,7 @@ def guiFunction():
     backgroung_img = ImageTk.PhotoImage(Image.open("Images/2560_1440.png"))
     canvas.create_image(20,20,anchor='center',image=backgroung_img)
     
-    frame = tk.Frame(root, bg='black',bd=4)
+    frame = tk.Frame(root, bg='#003F5A',bd=4)
     frame.place(relx=0.1,rely=.75, relwidth=.8, relheight=.15)
 
     frame2 = tk.Frame(frame,bg='white',bd=4)
@@ -77,24 +77,40 @@ def guiFunction():
     paperButton.place(relx=.44,rely=0.10,relwidth=.12,relheight=.8)
 
     scissorImg = ImageTk.PhotoImage(file='images/scissor.jpg')
-    scissorButton = tk.Button(buttonFrame, image=scissorImg,bg='white', bd=-2,command=lambda:userChioce('scissor'.capitalize()))
+    scissorButton = tk.Button(buttonFrame, relief="flat",image=scissorImg,bg='white', bd=-1,command=lambda:userChioce('scissor'.capitalize()))
     scissorButton.place(relx=.73,rely=0.10,relwidth=.12,relheight=.8)
 
-    labelFrame = tk.LabelFrame(root,bg='black',fg='white',bd=10,font=0,text='Hello World')
-    labelFrame.place(relx=.1,rely=.1,relwidth=.8,relheight=.6)
+    labelFrame = tk.LabelFrame(root, relief='ridge',bg='#003F5A',fg='white',bd=4,font='Helvetica 8 bold')
+    labelFrame.place(relx=.1,rely=.1,relwidth=.8,relheight=.65)
+
+    askL = tk.Label(labelFrame, bg='#003F5A',bd=-2,fg='white',font='Helvetica 12 bold',text='Choose: \nRock\t    \t   Paper \t\t      Scissor')
+    askL.pack(side='bottom')
 ### User's pick
     def userChioce(kk):
-        chos = tk.Label(labelFrame,bg='black',font=10,fg='white',text='You choose:')
-        chos.place(relx=0.1,rely=.1,relheight=.2,relwidth=.2)
+        askL.pack_forget()
+        chos = tk.Label(labelFrame,bg='#003F5A',font='Helvetica 12 bold',fg='white',text='You Choose :')
+        chos.place(relx=0.15,rely=.23,relheight=.2,relwidth=.2)
         if kk == 'Rock':
-            label = tk.Label(labelFrame, bg='grey',fg='white',font=10,text=kk)
-            label.place(relx=0.1,rely=.4,relheight=.2,relwidth=.2)
+            userLabel= tk.Label(labelFrame, bg='grey',fg='white',font='Helvetica 12 bold',text=kk, relief='groove')
+            userLabel.place(relx=0.15,rely=.48,relheight=.2,relwidth=.2)
         elif kk == 'Paper':
-            label = tk.Label(labelFrame, bg='grey',fg='white',font=10,text=kk)
-            label.place(relx=0.1,rely=.4,relheight=.2,relwidth=.2)
+            userLabel= tk.Label(labelFrame, bg='grey',fg='white',font='Helvetica 12 bold',text=kk, relief='groove')
+            userLabel.place(relx=0.15,rely=.48,relheight=.2,relwidth=.2)
         elif kk == 'Scissor':
-            label = tk.Label(labelFrame, bg='grey',fg='white',font=10,text=kk)
-            label.place(relx=0.1,rely=.4,relheight=.2,relwidth=.2)
+            userLabel= tk.Label(labelFrame, bg='grey',fg='white',font='Helvetica 12 bold',text=kk, relief='groove')
+            userLabel.place(relx=0.15,rely=.48,relheight=.2,relwidth=.2)
+        def commandBtn():
+            chos2 = tk.Label(labelFrame,bg='#003F5A',font='Helvetica 12 bold',fg='white',text='CPU\'s Choice :')
+            chos2.place(relx=0.65,rely=.23,relheight=.2,relwidth=.2)
+
+            comLabel = tk.Label(labelFrame, bg='grey',fg='white',font='Helvetica 12 bold',text=computerChoice(),relief='groove')
+            comLabel.place(relx=0.65,rely=.48,relheight=.2,relwidth=.2)
+
+            playBtn.destroy()
+        playBtn = tk.Button(labelFrame,text='Play',command=commandBtn,bg='#48C3F9')
+        playBtn.place(relx=.5,rely=1,anchor='s')
+        #labelFrame['text'] = 'Processing....'.upper()
+        #print(kk)
     
     labeltime = tk.Label(root, bg='grey',fg='red',font=10)
     labeltime.pack(side='top',fill='x')
